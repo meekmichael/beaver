@@ -8,6 +8,8 @@ from beaver.transports import create_transport
 from beaver.transports.exception import TransportException
 from unicode_dammit import unicode_dammit
 
+def handleSIGCHLD():
+      os.waitpid(-1, os.WNOHANG)
 
 def run_queue(queue, beaver_config, logger=None):
     signal.signal(signal.SIGTERM, signal.SIG_DFL)
